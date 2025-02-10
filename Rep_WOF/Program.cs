@@ -3,6 +3,7 @@ using Application.Data;
 using Application.Repositores;
 using Application.UnitOfWorks;
 using Microsoft.EntityFrameworkCore;
+using Rep_WOF.Extentions;
 
 namespace Rep_WOF
 {
@@ -17,6 +18,10 @@ namespace Rep_WOF
             
             builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            //builder.Services.AddAutoMapper(typeof(MappingProfiles)); // Explicitly register the MappingProfiles class
+
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
             {
