@@ -1,0 +1,6 @@
+@Rep_WOF_HostAddress = http://localhost:5063
+
+GET {{Rep_WOF_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
